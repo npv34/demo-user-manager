@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {IUser} from "../iuser";
 
 @Component({
@@ -21,28 +21,34 @@ export class UserListComponent implements OnInit {
       email: 'vinh@gamil.com'
     },
     {
-      id: 3,
+      id: 4,
       name: 'duc',
       email: 'duc@gamil.com'
     }
   ]
 
-  userFilter =[];
-  constructor() { }
+  userFilter = [];
+
+  constructor() {
+  }
 
   ngOnInit(): void {
     this.userFilter = this.users;
   }
 
-  search(event){
-    let keyword = event.target.value;
-    this.userFilter = (keyword) ? this.filerByKeyword(keyword): this.users;
+  search(event) {
+    let keyword = event;
+    this.userFilter = (keyword) ? this.filerByKeyword(keyword) : this.users;
   }
 
   filerByKeyword(keyword) {
     return this.users.filter(user => {
-        return user.name.indexOf(keyword) != -1;
+      return user.name.indexOf(keyword) != -1;
     })
+  }
+
+  delete(id) {
+
   }
 
 }
