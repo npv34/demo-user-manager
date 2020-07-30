@@ -31,6 +31,8 @@
           <td *ngIf="group.id == user.group_id">{{ group.name }}</td>
         </ng-container>
         <td>
+          <button class="btn btn-primary mr-2" [routerLink]="[user.id, 'edit']" >Edit</button>
+
           <button class="btn btn-danger" (click)="delete(user.id)">Delete</button>
         </td>
       </tr>
